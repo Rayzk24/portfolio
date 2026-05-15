@@ -1,0 +1,83 @@
+import { motion } from 'framer-motion';
+
+const references = [
+  { name: 'FishMC', logo: '/logos/fishmc.png', floatDelay: 0 },
+  { name: 'DemeryaMC', logo: '/logos/demeryamc.png', floatDelay: 0.8 },
+  { name: 'OnySky', logo: '/logos/onysky.png', floatDelay: 1.5 },
+  { name: 'Socturna', logo: '/logos/socturna.png', floatDelay: 2.2 },
+];
+
+export default function Projects() {
+  return (
+    <section
+      id="projects"
+      className="relative py-32 px-6 bg-ink text-white overflow-hidden"
+    >
+      <div className="absolute inset-0 noise-overlay pointer-events-none opacity-30" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-forest/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 max-w-3xl"
+        >
+          <p className="text-sm font-medium text-emerald-400 tracking-widest uppercase mb-4">
+            Références
+          </p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tightest text-white">
+            Ils m'ont fait confiance.
+          </h2>
+          <p className="mt-6 text-lg text-gray-400">
+            Quelques serveurs avec qui j'ai bossé.
+          </p>
+        </motion.div>
+
+        {/* Rangée des références : 4 colonnes desktop, 2x2 mobile */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12 items-center justify-items-center">
+          {references.map((ref, i) => (
+            // Wrapper extérieur : gère uniquement l'animation d'entrée (fade + slide)
+            <motion.div
+              key={ref.name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="flex items-center justify-center"
+            >
+              {/* Wrapper intérieur : flottement permanent + hover scale */}
+              <motion.div
+                animate={{ y: [-6, 6] }}
+                whileHover={{ scale: 1.08 }}
+                transition={{
+                  y: {
+                    duration: 4,
+                    ease: 'easeInOut',
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                    delay: ref.floatDelay,
+                  },
+                  scale: { duration: 0.3, ease: 'easeOut' },
+                }}
+              >
+                {ref.logo ? (
+                  <img
+                    src={ref.logo}
+                    alt={ref.name}
+                    className="max-h-24 w-auto object-contain"
+                  />
+                ) : (
+                  <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white text-center">
+                    {ref.name}
+                  </span>
+                )}
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
