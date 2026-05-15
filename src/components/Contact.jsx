@@ -84,7 +84,7 @@ export default function Contact() {
 
           {/* Card Email — entièrement cliquable */}
           <motion.a
-            href="mailto:contact@rayzk24.fr"
+            href="mailto:contact@rayzk.fr"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
@@ -104,7 +104,7 @@ export default function Contact() {
               Email
             </div>
             <div className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
-              contact@rayzk24.fr
+              contact@rayzk.fr
             </div>
             <div className="text-sm text-gray-500">
               Pour les échanges plus formels.
