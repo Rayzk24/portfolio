@@ -15,41 +15,49 @@ const skills = [
     icon: Sword,
     name: 'MythicMobs',
     desc: 'Boss et mobs custom avec mécaniques avancées.',
+    url: 'https://www.spigotmc.org/resources/mythicmobs.5702/',
   },
   {
     icon: Package,
     name: 'ItemsAdder',
     desc: 'Items, blocs et ressources entièrement custom.',
+    url: 'https://www.spigotmc.org/resources/itemsadder.73355/',
   },
   {
     icon: Fish,
     name: 'EvenMoreFish',
     desc: 'Systèmes de pêche avec raretés et récompenses.',
+    url: 'https://www.spigotmc.org/resources/evenmorefish.91310/',
   },
   {
     icon: MonitorPlay,
     name: 'CustomNameplates',
     desc: 'HUD, bossbars et interfaces dynamiques.',
+    url: 'https://voxel.shop/product/2543/customnameplates',
   },
   {
     icon: LayoutGrid,
     name: 'DeluxeMenus',
     desc: 'Interfaces et menus entièrement custom.',
+    url: 'https://www.spigotmc.org/resources/deluxemenus.11734/',
   },
   {
     icon: Trophy,
     name: 'BattlePass',
     desc: 'Systèmes de battle pass et récompenses progressives.',
+    url: 'https://www.spigotmc.org/resources/1-17-26-2-%E2%AD%90-battlepass-%E2%AD%90-50-quests-with-unlimited-customisable-quests-%E2%9A%94%EF%B8%8F-gui-editor-%E2%AD%90.63076/',
   },
   {
     icon: Map,
     name: 'WorldGuard',
     desc: 'Régions, flags et protections sur mesure.',
+    url: 'https://dev.bukkit.org/projects/worldguard',
   },
   {
     icon: Users,
     name: 'Citizens',
     desc: 'PNJ interactifs avec dialogues et quêtes.',
+    url: 'https://www.spigotmc.org/resources/citizens.13811/',
   },
 ];
 
@@ -80,8 +88,12 @@ export default function Skills() {
           {skills.map((skill, i) => {
             const Icon = skill.icon;
             return (
-              <motion.div
+              <motion.a
                 key={skill.name}
+                href={skill.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Documentation ${skill.name}`}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
@@ -90,7 +102,7 @@ export default function Skills() {
                   delay: (i % 4) * 0.08,
                   ease: 'easeOut',
                 }}
-                className="group p-6 rounded-2xl bg-white border border-black/5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default"
+                className="group block p-6 rounded-2xl bg-white border border-black/5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               >
                 <div className="w-11 h-11 rounded-xl bg-paper group-hover:bg-forest/10 flex items-center justify-center mb-4 transition-colors">
                   <Icon
@@ -104,7 +116,7 @@ export default function Skills() {
                 <p className="text-sm text-gray-500 leading-relaxed">
                   {skill.desc}
                 </p>
-              </motion.div>
+              </motion.a>
             );
           })}
         </div>

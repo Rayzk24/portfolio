@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const references = [
-  { name: 'FishMC', logo: '/logos/fishmc.png', floatDelay: 0 },
-  { name: 'DemeryaMC', logo: '/logos/demeryamc.png', floatDelay: 0.8 },
-  { name: 'OnySky', logo: '/logos/onysky.png', floatDelay: 1.5 },
-  { name: 'Socturna', logo: '/logos/socturna.png', floatDelay: 2.2 },
+  { name: 'FishMC', logo: '/logos/fishmc.png', floatDelay: 0, url: 'https://fishmc.fr' },
+  { name: 'DemeryaMC', logo: '/logos/demeryamc.png', floatDelay: 0.8, url: 'https://demeryamc.fr' },
+  { name: 'OnySky', logo: '/logos/onysky.png', floatDelay: 1.5, url: null },
+  { name: 'Socturna', logo: '/logos/socturna.png', floatDelay: 2.2, url: null },
 ];
 
 export default function Projects() {
@@ -47,33 +47,49 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="flex items-center justify-center"
             >
-              {/* Wrapper intérieur : flottement permanent + hover scale */}
-              <motion.div
-                animate={{ y: [-6, 6] }}
-                whileHover={{ scale: 1.08 }}
-                transition={{
-                  y: {
-                    duration: 4,
-                    ease: 'easeInOut',
-                    repeat: Infinity,
-                    repeatType: 'reverse',
-                    delay: ref.floatDelay,
-                  },
-                  scale: { duration: 0.3, ease: 'easeOut' },
-                }}
-              >
-                {ref.logo ? (
-                  <img
-                    src={ref.logo}
-                    alt={ref.name}
-                    className="max-h-24 w-auto object-contain"
-                  />
-                ) : (
-                  <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white text-center">
-                    {ref.name}
-                  </span>
-                )}
-              </motion.div>
+              {/* Wrapper intérieur : flottement permanent + hover scale.
+                  Devient un <a> si la référence a une URL, sinon un <div>. */}
+              {(() => {
+                const Tag = ref.url ? motion.a : motion.div;
+                const linkProps = ref.url
+                  ? {
+                      href: ref.url,
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                      'aria-label': `Visiter ${ref.name}`,
+                    }
+                  : {};
+                return (
+                  <Tag
+                    {...linkProps}
+                    animate={{ y: [-6, 6] }}
+                    whileHover={{ scale: 1.08 }}
+                    transition={{
+                      y: {
+                        duration: 4,
+                        ease: 'easeInOut',
+                        repeat: Infinity,
+                        repeatType: 'reverse',
+                        delay: ref.floatDelay,
+                      },
+                      scale: { duration: 0.3, ease: 'easeOut' },
+                    }}
+                    className={`inline-block ${ref.url ? 'cursor-pointer' : ''}`}
+                  >
+                    {ref.logo ? (
+                      <img
+                        src={ref.logo}
+                        alt={ref.name}
+                        className="max-h-24 w-auto object-contain"
+                      />
+                    ) : (
+                      <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white text-center">
+                        {ref.name}
+                      </span>
+                    )}
+                  </Tag>
+                );
+              })()}
             </motion.div>
           ))}
         </div>
