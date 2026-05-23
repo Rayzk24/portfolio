@@ -6,7 +6,7 @@ const services = [
     icon: Zap,
     title: 'Tâche ponctuelle',
     desc: "Une config spécifique à faire ? Je m'occupe d'une tâche précise, livraison rapide.",
-    price: 'À partir de 15€/h',
+    price: 'À partir de 12€/h',
   },
   {
     icon: Package,
