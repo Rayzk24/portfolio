@@ -1,10 +1,38 @@
 import { motion } from 'framer-motion';
 
 const references = [
-  { name: 'FishMC', logo: '/logos/fishmc.png', floatDelay: 0, url: 'https://fishmc.fr' },
-  { name: 'DemeryaMC', logo: '/logos/demeryamc.png', floatDelay: 0.8, url: 'https://demeryamc.fr' },
-  { name: 'OnySky', logo: '/logos/onysky.png', floatDelay: 1.5, url: null },
-  { name: 'Socturna', logo: '/logos/socturna.png', floatDelay: 2.2, url: null },
+  {
+    name: 'FishMC',
+    logo: '/logos/fishmc.webp',
+    width: 800,
+    height: 447,
+    floatDelay: 0,
+    url: 'https://fishmc.fr',
+  },
+  {
+    name: 'DemeryaMC',
+    logo: '/logos/demeryamc.webp',
+    width: 1187,
+    height: 897,
+    floatDelay: 0.8,
+    url: 'https://demeryamc.fr',
+  },
+  {
+    name: 'OnySky',
+    logo: '/logos/onysky.webp',
+    width: 800,
+    height: 450,
+    floatDelay: 1.5,
+    url: null,
+  },
+  {
+    name: 'Socturna',
+    logo: '/logos/socturna.png',
+    width: 292,
+    height: 226,
+    floatDelay: 2.2,
+    url: null,
+  },
 ];
 
 export default function Projects() {
@@ -80,6 +108,10 @@ export default function Projects() {
                       <img
                         src={ref.logo}
                         alt={ref.name}
+                        width={ref.width}
+                        height={ref.height}
+                        loading="lazy"
+                        decoding="async"
                         className="max-h-24 w-auto object-contain"
                       />
                     ) : (

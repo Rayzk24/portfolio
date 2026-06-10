@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { copyText } from '../utils/clipboard.js';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyDiscord = () => {
-    navigator.clipboard.writeText('rayzk24').then(() => {
+  const handleCopyDiscord = async () => {
+    try {
+      const didCopy = await copyText('rayzk24');
+      if (!didCopy) return;
+
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    });
+    } catch {
+      setCopied(false);
+    }
   };
 
   return (

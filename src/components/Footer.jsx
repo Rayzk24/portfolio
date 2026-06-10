@@ -1,14 +1,20 @@
 import { useState } from 'react';
 import { MessageSquare, Copy, Check } from 'lucide-react';
+import { copyText } from '../utils/clipboard.js';
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText('rayzk24').then(() => {
+  const handleCopy = async () => {
+    try {
+      const didCopy = await copyText('rayzk24');
+      if (!didCopy) return;
+
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    });
+    } catch {
+      setCopied(false);
+    }
   };
 
   return (
