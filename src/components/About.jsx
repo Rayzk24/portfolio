@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const stats = [
   { value: 'Bientôt 5 ans', label: "d'expérience" },
-  { value: '4', label: 'collaborations' },
+  { value: '5', label: 'collaborations' },
   { value: 'Sous 24h', label: 'première réponse' },
 ];
 
