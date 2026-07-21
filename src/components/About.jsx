@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const stats = [
   { value: 'Bientôt 5 ans', label: "d'expérience" },
   { value: '5', label: 'collaborations' },
-  { value: 'Sous 24h', label: 'première réponse' },
+  { value: 'Réponse', label: 'sous 24h' },
 ];
 
 export default function About() {
@@ -45,7 +45,7 @@ export default function About() {
             </p>
             <p>
               Je travaille à la tâche ou à l'heure selon les besoins, et je
-              reste dispo pour échanger à chaque étape.
+              reste disponible pour échanger à chaque étape.
             </p>
           </motion.div>
 

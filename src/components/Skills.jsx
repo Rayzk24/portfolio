@@ -128,7 +128,7 @@ export default function Skills() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 text-center text-sm text-gray-500"
         >
-          ...et bien d'autres selon les besoins du projet.
+          Et bien d'autres selon les besoins du projet.
         </motion.p>
       </div>
     </section>
