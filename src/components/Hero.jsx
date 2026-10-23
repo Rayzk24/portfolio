@@ -50,7 +50,7 @@ export default function Hero() {
           animate="show"
           className="mt-8 text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto font-light"
         >
-          Bientôt 5 ans à donner vie à vos serveurs.
+          Je donne vie à des serveurs Minecraft depuis 2022.
         </motion.p>
 
         <motion.div

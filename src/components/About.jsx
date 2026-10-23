@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 const stats = [
-  { value: 'Bientôt 5 ans', label: "d'expérience" },
+  { value: '2022', label: 'début de mon parcours' },
   { value: '5', label: 'collaborations' },
   { value: 'Réponse', label: 'sous 24h' },
 ];
@@ -33,7 +33,7 @@ export default function About() {
             className="lg:col-span-2 space-y-6 text-lg text-gray-700 leading-relaxed"
           >
             <p>
-              Je touche à la configuration Minecraft depuis bientôt 5 ans. J'ai
+              Depuis 2022, je me consacre à la configuration Minecraft. J'ai
               d'abord développé mes propres serveurs avant de me spécialiser
               sur des plugins complexes et de proposer mes services en
               freelance.
