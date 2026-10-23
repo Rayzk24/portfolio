@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
@@ -8,6 +9,36 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 
 export default function App() {
+  useEffect(() => {
+    let frameId;
+
+    const scrollToHash = (behavior) => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => {
+        let id;
+        try {
+          id = decodeURIComponent(window.location.hash.slice(1));
+        } catch {
+          return;
+        }
+
+        if (id) {
+          document.getElementById(id)?.scrollIntoView({ behavior });
+        }
+      });
+    };
+
+    const onHashChange = () => scrollToHash('smooth');
+
+    scrollToHash('instant');
+    window.addEventListener('hashchange', onHashChange);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-paper text-ink">
       <Navbar />
