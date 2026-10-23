@@ -16,7 +16,7 @@ const references = [
     width: 1187,
     height: 897,
     floatDelay: 0.8,
-    url: 'https://demeryamc.fr',
+    url: null,
   },
   {
     name: 'EvoBlock',
