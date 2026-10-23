@@ -8,7 +8,7 @@ const references = [
     width: 800,
     height: 447,
     floatDelay: 0,
-    url: 'https://fishmc.fr',
+    url: null,
   },
   {
     name: 'DemeryaMC',
@@ -19,12 +19,12 @@ const references = [
     url: 'https://demeryamc.fr',
   },
   {
-    name: 'LootSMP',
-    logo: '/logos/lootsmp.webp',
-    width: 292,
-    height: 226,
+    name: 'EvoBlock',
+    logo: '/logos/evoblock.webp',
+    width: 600,
+    height: 342,
     floatDelay: 1.5,
-    url: 'https://lootsmp.fr',
+    url: null,
   },
   {
     name: 'OnySky',
@@ -134,7 +134,7 @@ export default function Projects() {
                         height={ref.height}
                         loading="lazy"
                         decoding="async"
-                        className="max-h-24 w-auto object-contain"
+                        className="max-h-24 max-w-full w-auto object-contain"
                       />
                     ) : (
                       <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white text-center">

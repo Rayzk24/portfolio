@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const stats = [
   { value: '2022', label: 'début de mon parcours' },
-  { value: '5', label: 'collaborations' },
+  { value: '6', label: 'collaborations' },
   { value: 'Réponse', label: 'sous 24h' },
 ];
 
