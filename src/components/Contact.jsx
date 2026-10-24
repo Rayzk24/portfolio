@@ -1,7 +1,21 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { Mail, MessageSquare, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { copyText } from '../utils/clipboard.js';
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      if (!await copyText('rayzk24')) return;
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -30,35 +44,37 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-5">
-          {/* Card Discord — entièrement cliquable */}
-          <motion.a
-            href="https://rayzk.fr/discord"
-            aria-label="Rejoindre le Discord Rayzk Studio"
+          {/* Card Discord — copie le pseudo au clic */}
+          <motion.button
+            type="button"
+            onClick={handleCopy}
+            aria-label="Copier le pseudo Discord rayzk24"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6 }}
-            className="group relative cursor-pointer p-8 rounded-3xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/5 hover:border-emerald-400/20 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
+            className="group relative w-full cursor-pointer p-8 text-left rounded-3xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/5 hover:border-emerald-400/20 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
           >
             <div className="flex items-start justify-between mb-6">
               <div className="w-12 h-12 rounded-2xl bg-forest/30 flex items-center justify-center text-emerald-400">
                 <MessageSquare size={22} />
               </div>
-              <ArrowUpRight
-                size={22}
-                className="text-white/40 group-hover:text-emerald-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
-              />
+              {copied ? (
+                <Check size={22} className="text-emerald-400" aria-hidden="true" />
+              ) : (
+                <Copy size={22} className="text-white/40 group-hover:text-emerald-400 transition-colors duration-300" aria-hidden="true" />
+              )}
             </div>
             <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">
               Discord
             </div>
             <div className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
-              Rayzk Studio
+              rayzk24
             </div>
-            <div className="text-sm text-gray-500">
-              Ouvrir une demande et présenter votre projet.
+            <div className="text-sm text-gray-500" aria-live="polite">
+              {copied ? 'Pseudo copié — ajoute-moi sur Discord.' : 'Copie mon pseudo pour me présenter ton projet.'}
             </div>
-          </motion.a>
+          </motion.button>
 
           {/* Card Email — entièrement cliquable */}
           <motion.a

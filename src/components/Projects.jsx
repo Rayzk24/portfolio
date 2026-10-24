@@ -81,7 +81,7 @@ export default function Projects() {
             Ils m'ont fait confiance.
           </h2>
           <p className="mt-6 text-lg text-gray-400">
-            Quelques serveurs avec qui j'ai bossé.
+            Quelques serveurs auxquels j'ai contribué.
           </p>
         </motion.div>
 

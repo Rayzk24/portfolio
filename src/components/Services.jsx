@@ -32,7 +32,7 @@ export default function Services() {
             Services
           </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tightest">
-            Deux façons de bosser ensemble.
+            Une intervention ponctuelle ou plusieurs configurations.
           </h2>
         </motion.div>
 
