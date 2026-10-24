@@ -72,7 +72,7 @@ export default function Contact() {
               rayzk24
             </div>
             <div className="text-sm text-gray-500" aria-live="polite">
-              {copied ? 'Pseudo copié — ajoute-moi sur Discord.' : 'Copie mon pseudo pour me présenter ton projet.'}
+              {copied ? 'Pseudo copié.' : 'Copie ce pseudo pour me contacter sur Discord.'}
             </div>
           </motion.button>
 
